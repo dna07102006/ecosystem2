@@ -2,7 +2,6 @@ package com.nam.model.organism;
 
 import java.util.List;
 
-import com.nam.model.configuration.Attributes;
 import com.nam.model.ecosystem.Ecosystem;
 
 public class Wandering implements Behavior {

@@ -1,6 +1,4 @@
-package com.nam.model.configuration;
-
-import com.nam.model.organism.TrophicLevel;
+package com.nam.model.organism;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,21 +13,21 @@ public class ConfigurationRegistry {
 
             switch (speciesId) {
                 case "grass":
-                    config = new OrganismConfiguration(TrophicLevel.PRODUCER, 20, 40, 200)
+                    config = new OrganismConfiguration(TrophicLevel.PRODUCER, 10, 10, 200)
                         .set(Attributes.PHOTOSYNTHESIS_RATE, 2.0);
                     break;
                 case "rabbit": 
-                    config = new OrganismConfiguration(TrophicLevel.HERBIVORE, 50, 100, 15)
-                        .set(Attributes.VISION_RANGE, 6.0)
+                    config = new OrganismConfiguration(TrophicLevel.HERBIVORE, 50, 50, 80)
+                        .set(Attributes.VISION_RANGE, 3.0)
                         .set(Attributes.SPEED, 3.0)
-                        .set(Attributes.ENERGY_LOSS_RATE, 1.5)
+                        .set(Attributes.ENERGY_LOSS_RATE, 1.0)
                         .set(Attributes.FOOD, List.of("grass"));
                     break;
                 case "wolf":
-                    config = new OrganismConfiguration(TrophicLevel.CARNIVORE, 50, 100, 15)
+                    config = new OrganismConfiguration(TrophicLevel.CARNIVORE, 100, 100, 15)
                     .set(Attributes.VISION_RANGE, 6.0)
-                    .set(Attributes.SPEED, 3.0)
-                    .set(Attributes.ENERGY_LOSS_RATE, 1.5)
+                    .set(Attributes.SPEED, 5.0)
+                    .set(Attributes.ENERGY_LOSS_RATE, 2.0)
                     .set(Attributes.FOOD, List.of("rabbit"));
                     break;
                 default:

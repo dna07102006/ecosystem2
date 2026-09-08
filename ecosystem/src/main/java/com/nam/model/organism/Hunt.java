@@ -1,6 +1,5 @@
 package com.nam.model.organism;
 
-import com.nam.model.configuration.Attributes;
 import com.nam.model.ecosystem.Ecosystem;
 
 import java.util.List;

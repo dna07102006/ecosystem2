@@ -1,7 +1,7 @@
 package com.nam.model.species;
 
-import com.nam.model.configuration.ConfigurationRegistry;
 import com.nam.model.organism.BehaviorRegistry;
+import com.nam.model.organism.ConfigurationRegistry;
 
 import java.util.HashMap;
 

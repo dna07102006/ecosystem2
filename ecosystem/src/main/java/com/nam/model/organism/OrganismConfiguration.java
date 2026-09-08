@@ -1,6 +1,4 @@
-package com.nam.model.configuration;
-
-import com.nam.model.organism.TrophicLevel;
+package com.nam.model.organism;
 
 import java.util.HashMap;
 import java.util.Map;

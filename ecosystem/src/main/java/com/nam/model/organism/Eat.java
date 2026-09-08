@@ -3,8 +3,6 @@ package com.nam.model.organism;
 import java.util.List;
 import java.util.Optional;
 
-import com.nam.model.configuration.Attributes;
-import com.nam.model.configuration.OrganismConfiguration;
 import com.nam.model.ecosystem.Ecosystem;
 
 public class Eat implements Behavior {

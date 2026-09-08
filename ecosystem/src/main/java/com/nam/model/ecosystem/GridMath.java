@@ -13,15 +13,9 @@ final class GridMath {
         return Math.abs(a.row() - b.row()) <= 1 && Math.abs(a.col() - b.col()) <= 1 && !a.equals(b);
     }
 
-    static Position stepToward(Position from, Position to, double speed) {
-        int steps = Math.max(1, (int) speed);
-        int row = from.row();
-        int col = from.col();
-        for (int i = 0; i < steps; i++) {
-            if (row == to.row() && col == to.col()) break;
-            row += Integer.signum(to.row() - row);
-            col += Integer.signum(to.col() - col);
-        }
+    static Position stepOnce(Position from, Position to) {
+        int row = from.row() + Integer.signum(to.row() - from.row());
+        int col = from.col() + Integer.signum(to.col() - from.col());
         return new Position(row, col);
     }
 }

@@ -1,6 +1,5 @@
 package com.nam.model.organism;
 
-import com.nam.model.configuration.OrganismConfiguration;
 import com.nam.model.ecosystem.Ecosystem;
 import com.nam.model.species.Species;
 
@@ -30,9 +29,9 @@ public class Organism{
     protected double getEnergy() {
         return energy;
     }
-    
+
     protected void gainEnergy(double amount) { 
-        this.energy += amount; 
+        this.energy = Math.min(this.getConfiguration().getMaxEnergy(), this.energy + amount); 
     }
 
     protected void loseEnergy(double amount) { 

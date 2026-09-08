@@ -1,4 +1,4 @@
-package com.nam.model.configuration;
+package com.nam.model.organism;
 
 import java.util.List;
 

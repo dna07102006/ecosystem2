@@ -1,7 +1,7 @@
 package com.nam.model.species;
 
-import com.nam.model.configuration.OrganismConfiguration;
 import com.nam.model.organism.Behavior;
+import com.nam.model.organism.OrganismConfiguration;
 
 import java.util.List;
 

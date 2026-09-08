@@ -14,6 +14,7 @@ public class BehaviorRegistry {
         behaviorsList.put("eat", new Eat());
         behaviorsList.put("hunt", new Hunt());
         behaviorsList.put("spawn", new Spawn());
+        behaviorsList.put("metabolize", new Metabolize());
     }
 
     public List<Behavior> get(String speciesId) throws IllegalArgumentException {
@@ -25,10 +26,10 @@ public class BehaviorRegistry {
                     behaviorsOf = List.of(behaviorsList.get("photosynthesize"), behaviorsList.get("spawn"));
                     break;
                 case "rabbit":
-                    behaviorsOf = List.of(behaviorsList.get("wander"), behaviorsList.get("eat"), behaviorsList.get("spawn"), behaviorsList.get("hunt"));
+                    behaviorsOf = List.of(behaviorsList.get("hunt"), behaviorsList.get("wander"), behaviorsList.get("eat"), behaviorsList.get("spawn"), behaviorsList.get("metabolize"));
                     break;
                 case "wolf":
-                    behaviorsOf = List.of(behaviorsList.get("wander"), behaviorsList.get("hunt"), behaviorsList.get("spawn"), behaviorsList.get("eat"));
+                    behaviorsOf = List.of(behaviorsList.get("hunt"), behaviorsList.get("wander"), behaviorsList.get("eat"), behaviorsList.get("spawn"), behaviorsList.get("metabolize"));
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown species: " + speciesId);

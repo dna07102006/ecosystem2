@@ -65,10 +65,18 @@ public class EcosystemImpl implements Ecosystem {
 
     @Override
     public void moveToward(Organism self, Organism target, double speed) {
-        Position myPosition = positionCache.get(self);
+        Position current = positionCache.get(self);
         Position targetPosition = positionCache.get(target);
-        Position nextPosition = clampToBounds(GridMath.stepToward(myPosition, targetPosition, speed));
-        moveTo(self, nextPosition);
+        int steps = Math.max(1, (int) speed);
+
+        for (int i = 0; i < steps; i++) {
+            if (GridMath.isAdjacent(current, targetPosition)) break;
+            Position next = clampToBounds(GridMath.stepOnce(current, targetPosition));
+            if (!grid[next.row()][next.col()].isEmpty()) break;
+            current = next;
+        }
+
+        moveTo(self, current);
     }
 
     @Override
@@ -127,4 +135,5 @@ public class EcosystemImpl implements Ecosystem {
     public Cell getCell(int row, int col) { return grid[row][col]; }
     public int getRows() { return rows; }
     public int getCols() { return cols; }
+    public Position getPositionOf(Organism o) { return positionCache.get(o); }
 }
