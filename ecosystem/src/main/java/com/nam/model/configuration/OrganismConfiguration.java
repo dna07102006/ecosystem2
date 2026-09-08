@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class OrganismConfiguration {
+    public static final double ENERGY_TRANSFER_RATE = 0.1;
+
     private final TrophicLevel trophicLevel;
     private final double maxEnergy;
     private final double reproduceThreshold;

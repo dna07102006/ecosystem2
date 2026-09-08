@@ -19,11 +19,11 @@ public class ConfigurationRegistry {
                         .set(Attributes.PHOTOSYNTHESIS_RATE, 2.0);
                     break;
                 case "rabbit": 
-                    config = new OrganismConfiguration(TrophicLevel.CARNIVORE, 50, 100, 15)
+                    config = new OrganismConfiguration(TrophicLevel.HERBIVORE, 50, 100, 15)
                         .set(Attributes.VISION_RANGE, 6.0)
                         .set(Attributes.SPEED, 3.0)
                         .set(Attributes.ENERGY_LOSS_RATE, 1.5)
-                        .set(Attributes.FOOD, List.of("rabbit"));
+                        .set(Attributes.FOOD, List.of("grass"));
                     break;
                 case "wolf":
                     config = new OrganismConfiguration(TrophicLevel.CARNIVORE, 50, 100, 15)
