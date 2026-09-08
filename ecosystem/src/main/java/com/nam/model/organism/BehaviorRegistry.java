@@ -16,7 +16,7 @@ public class BehaviorRegistry {
         behaviorsList.put("spawn", new Spawn());
     }
 
-    public List<Behavior> getBehavior(String speciesId) throws IllegalArgumentException {
+    public List<Behavior> get(String speciesId) throws IllegalArgumentException {
         if (!behaviors.containsKey(speciesId)) {
             List<Behavior> behaviorsOf;
 

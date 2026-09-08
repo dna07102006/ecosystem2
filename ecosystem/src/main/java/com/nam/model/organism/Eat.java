@@ -4,7 +4,7 @@ import com.nam.model.ecosystem.Ecosystem;
 
 public class Eat implements Behavior {
     @Override 
-    public void behave(Organism organism, Ecosystem environment) {
+    public void behave(Organism self, Ecosystem environment) {
         // Implement eating behavior here
     }
 }

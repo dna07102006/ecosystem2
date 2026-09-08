@@ -1,25 +1,36 @@
 package com.nam.model.configuration;
 
-import java.util.HashMap;
-import java.util.List;
 import com.nam.model.organism.TrophicLevel;
 
-public class ConfigurationRegistry {
-    private HashMap<String, OrganismConfiguration> configs = new HashMap<>();
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-    public OrganismConfiguration getConfiguration(String speciesId) throws IllegalArgumentException {
-        if (!configs.containsKey(speciesId)) {
+public class ConfigurationRegistry {
+    private final Map<String, OrganismConfiguration> configs = new HashMap<>();
+
+    public OrganismConfiguration get(String speciesId) throws IllegalArgumentException {
+        if (!configs.containsKey(speciesId)){
             OrganismConfiguration config;
 
             switch (speciesId) {
                 case "grass":
-                    config = new ProducerConfiguration(TrophicLevel.PRODUCER, 20, 5, 200, 2);
+                    config = new OrganismConfiguration(TrophicLevel.PRODUCER, 20, 40, 200)
+                        .set(Attributes.PHOTOSYNTHESIS_RATE, 2.0);
                     break;
-                case "rabbit":
-                    config = new AnimalConfiguration(TrophicLevel.HERBIVORE, 100, 50, 10, 5, 2, 1, List.of("grass"));
+                case "rabbit": 
+                    config = new OrganismConfiguration(TrophicLevel.CARNIVORE, 50, 100, 15)
+                        .set(Attributes.VISION_RANGE, 6.0)
+                        .set(Attributes.SPEED, 3.0)
+                        .set(Attributes.ENERGY_LOSS_RATE, 1.5)
+                        .set(Attributes.FOOD, List.of("rabbit"));
                     break;
                 case "wolf":
-                    config = new AnimalConfiguration(TrophicLevel.CARNIVORE, 150, 75, 5, 10, 3, 2, List.of("rabbit"));
+                    config = new OrganismConfiguration(TrophicLevel.CARNIVORE, 50, 100, 15)
+                    .set(Attributes.VISION_RANGE, 6.0)
+                    .set(Attributes.SPEED, 3.0)
+                    .set(Attributes.ENERGY_LOSS_RATE, 1.5)
+                    .set(Attributes.FOOD, List.of("rabbit"));
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown species: " + speciesId);

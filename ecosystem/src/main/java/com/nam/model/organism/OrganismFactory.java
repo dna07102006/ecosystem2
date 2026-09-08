@@ -7,9 +7,9 @@ public class OrganismFactory {
     private final SpeciesRegistry speciesRegistry = new SpeciesRegistry();
     
     public Organism createOrganism(String speciesId) throws IllegalArgumentException {
-        Species species = speciesRegistry.getSpecies(speciesId);
+        Species species = speciesRegistry.get(speciesId);
         double energy = species.getConfig().getMaxEnergy();
 
         return new Organism(energy, species);
-    };
+    }
 }

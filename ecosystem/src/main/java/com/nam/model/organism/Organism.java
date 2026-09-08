@@ -13,13 +13,25 @@ public class Organism{
         this.species = species;
     }
 
-    public OrganismConfiguration getConfiguration() {
-        return species.getConfig();
-    }
-
     public void act(Ecosystem environment) {
         for (Behavior behavior : species.getBehaviors()) {
             behavior.behave(this, environment);
         }
+    }
+
+    public String getName(){
+        return species.getSpeciesId();
+    }
+    
+    public boolean isAlive(){
+        return energy > 0;
+    }
+
+    protected void setEnergy(double energy){
+        energy += energy;
+    }
+
+    protected  Species getSpecies(){
+        return species;
     }
 }

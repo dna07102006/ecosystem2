@@ -1,8 +1,9 @@
 package com.nam.model.species;
 
-import java.util.HashMap;
 import com.nam.model.configuration.ConfigurationRegistry;
 import com.nam.model.organism.BehaviorRegistry;
+
+import java.util.HashMap;
 
 public class SpeciesRegistry {
     private ConfigurationRegistry configRegistry = new ConfigurationRegistry();
@@ -10,23 +11,25 @@ public class SpeciesRegistry {
 
     private HashMap<String, Species> species = new HashMap<>();
     
-    public Species getSpecies(String speciesId) throws IllegalArgumentException {
+    public Species get(String speciesId) throws IllegalArgumentException {
         if (!species.containsKey(speciesId)) {
             Species name;
 
             switch (speciesId) {
                 case "grass":
-                    name = new Species("grass", configRegistry.getConfiguration("grass"), behaviorRegistry.getBehavior("grass"));
+                    name = new Species("grass", configRegistry.get("grass"), behaviorRegistry.get("grass"));
                     break;
                 case "rabbit":
-                    name = new Species("rabbit", configRegistry.getConfiguration("rabbit"), behaviorRegistry.getBehavior("rabbit"));
+                    name = new Species("rabbit", configRegistry.get("rabbit"), behaviorRegistry.get("rabbit"));
                     break;
                 case "wolf":
-                    name = new Species("wolf", configRegistry.getConfiguration("wolf"), behaviorRegistry.getBehavior("wolf"));
+                    name = new Species("wolf", configRegistry.get("wolf"), behaviorRegistry.get("wolf"));
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown species: " + speciesId);
             }
+
+            species.put(speciesId, name);
         }
 
         return species.get(speciesId);

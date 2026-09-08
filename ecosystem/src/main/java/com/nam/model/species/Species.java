@@ -1,8 +1,10 @@
 package com.nam.model.species;
 
-import java.util.List;
 import com.nam.model.configuration.OrganismConfiguration;
 import com.nam.model.organism.Behavior;
+
+import java.util.List;
+
 import lombok.Getter;
 
 @Getter
