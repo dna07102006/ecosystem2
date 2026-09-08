@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.nam.model.configuration.Attributes;
+import com.nam.model.configuration.OrganismConfiguration;
 import com.nam.model.ecosystem.Ecosystem;
 
 public class Eat implements Behavior {
@@ -16,7 +17,8 @@ public class Eat implements Behavior {
             .findFirst();
 
         prey.ifPresent(p -> {
-            self.gainEnergy(p.getEnergy() * self.getConfiguration().ENERGY_TRANSFER_RATE);
+            self.getConfiguration();
+            self.gainEnergy(p.getEnergy() * OrganismConfiguration.ENERGY_TRANSFER_RATE);
             p.loseEnergy(p.getEnergy());
             environment.remove(p);
         });
